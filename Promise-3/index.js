@@ -22,7 +22,6 @@ function uppercaser(str) {
   });
 }
 
-
 // Above we have two functions that return promises. 
 // These are greet and uppercaser. 
 // Notice below how we chain these promises together. The 
@@ -37,9 +36,28 @@ greet('Your name') // Returns a Promise
 
 // Challenges: get greet() to fail by passing a non string value
 // What happens? 
+greet('7.5') // Returns a Promise
+  .then(str => uppercaser(str))
+  .then(str => console.log(str))
+  .catch(err => console.log(err))
+
+// This greet() function rejects the promise since I entered a float.
+// The message appears as "Greet expects a string via the .catch()"
 
 // Challenge: get uppercaser() to fail by passing a non string value
-// What happens? 
+// What happens?
+uppercaser(7.5)
+  .then(str => console.log(str))
+  .catch(err =>console.log(err));
+
+// There the uppercaser function treats the input as a string. Since a float is
+// being passed and will display error message as 'Argument to uppercase must
+// be a string'.
 
 // Challenge: Notice there is only a single .catch() at the end. 
 // Explain the behavior?
+
+// A single .catch() block is used to handle errors that might occur in the preceding.
+// When a promise completes the operation, the control flows to the nearest .then() block.
+// If an error occurs in any of the preceding .then() blocks, the control flows to the nearest .catch() block.
+// This is beneficial because it allows for compact error handling instead of having more than one error handlers.
