@@ -17,7 +17,7 @@ function onerror(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
-navigator.geolocation.getCurrentPosition(onsuccess, onerror, options);
+// navigator.geolocation.getCurrentPosition(onsuccess, onerror, options);
 // navigator.geolocation( successCallback, errorCallback, options )
 
 // navigator.geolocation((pos) => {
@@ -31,13 +31,10 @@ navigator.geolocation.getCurrentPosition(onsuccess, onerror, options);
 
 function getGeolocation(options) {
   return new Promise( (resolve, reject) => {
-    
+    navigator.geolocation.getCurrentPosition(resolve, reject, options);
   } )
 }
 
-// Like this: 
-
 getGeolocation(options)
-  .then(pos => { })
-  .catch(err => { })
-
+  .then(onsuccess)
+  .catch(onerror)

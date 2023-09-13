@@ -24,16 +24,16 @@ function whatToEat(timeOfDay) {
 // Handle the Promise returned from whatToEat here: 
 
 whatToEat('lunch')
-.then((message) => {
-  console.log(message);
-}).catch((err) => {
-  console.log(err);
-});
+  .then((message) => {
+    console.log(message);
+  }).catch((err) => {
+    console.log(err);
+  });
 
 // Handle this Promise: 
 whatToEat('elevens')
-.then((message) => {
-  console.log(message);
-}).catch((err) => {
-  console.log(err);
-});
+  .then((message) => {
+    console.log(message);
+  }).catch((err) => {
+    console.log(err);
+  });
